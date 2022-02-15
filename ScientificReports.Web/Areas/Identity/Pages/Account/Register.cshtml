@@ -1,0 +1,61 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Реєстрація";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h2>Створіть новий аккаунт.</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating">
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                <label asp-for="Input.Email"></label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <p />
+            <div class="form-floating">
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="Input.Password">Пароль</label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <p />
+            <div class="form-floating">
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="Input.ConfirmPassword">Підтвердіть пароль</label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <p />
+            <div class="form-floating">
+                <select asp-for="Input.FacultyId" asp-items="Model.Input.Faculties" aria-required="true" class="form-control">
+                </select>
+                <label asp-for="Input.FacultyId">Виберіть факультет</label>
+            </div>
+            <p />
+            <div class="form-floating">
+                <select asp-for="Input.CathedraId" aria-required="true" class="form-control">
+                    <asp-items>
+                        @for (int i = 0; i < Model.Input.Cathedras.Count; i++)
+                        {
+                            if(Model.Input.Cathedras[i] == Model.Input.Faculties[1])
+                            {
+                                //Model.Input.Cathedras[i];
+                            }
+                        }
+                    </asp-items>
+                </select>
+                <label asp-for="Input.CathedraId">Виберіть кафедру</label>
+            </div>
+            <br />
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}
