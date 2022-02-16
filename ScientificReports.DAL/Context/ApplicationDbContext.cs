@@ -15,8 +15,12 @@ namespace ScientificReports.DAL.Context
 
         public DbSet<DataEntity> Datas { get; set; }
 
-        public DbSet<ScientificDegreeEntity> ScientificDegreeEntity { get; set; }
+        public DbSet<CathedraEntity> Cathedras { get; set; }
 
-        public DbSet<AcademicStatusEntity> AcademicStatusEntity { get; set; }
+        public DbSet<FacultyEntity> Faculties { get; set; }
+
+        public DbSet<ScientificDegreeEntity> ScientificDegrees { get; set; }
+
+        public DbSet<AcademicStatusEntity> AcademicStatuses { get; set; }
     }
 }

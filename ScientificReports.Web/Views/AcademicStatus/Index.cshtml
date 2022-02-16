@@ -1,22 +1,25 @@
 ﻿@model IEnumerable<ScientificReports.Web.ViewModels.AcademicStatusViewModel>
 
 @{
-    ViewData["Title"] = "Вчений рівень";
+    ViewData["Title"] = "Вчені звання";
 }
 
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css" />
 
-<h1>Вчений рівень</h1>
+<h1>Вчені звання</h1>
 
 <p>
-    <a asp-action="Create">Створити новий</a>
+    <a asp-action="Create">Створити нове</a>
 </p>
 <table class="table" id="dataT">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+
             </th>
         </tr>
     </thead>
